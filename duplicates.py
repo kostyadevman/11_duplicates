@@ -13,19 +13,12 @@ def get_files_dict(folder):
     return files_dict
 
 
-def get_duplicates(files_dict):
-    duplicates_in_dir = []
-    for file_size, paths in files_dict.items():
-        if len(duplicates) > 1:
-            # The first is path to  original file
-            duplicates_in_dir.extend(paths[1:])
-    return duplicates_in_dir
-
-
-def remove_duplicates(duplicates):
-    for duplicate in duplicates:
-        os.remove(duplicate)
-    return duplicates
+def print_duplicates(files_dict):
+    for (file_name, file_size), paths in files_dict.items():
+        if len(paths) > 1:
+            print('Duplicates for file {}:'.format(file_name))
+            for path in paths:
+                print(path)
 
 
 if __name__ == "__main__":
@@ -35,12 +28,5 @@ if __name__ == "__main__":
     src_dirname = sys.argv[1]
 
     files_dict = get_files_dict(src_dirname)
-    duplicates = get_duplicates(files_dict)
-
     print('Found duplicates in a directory "{}":'.format(src_dirname))
-    for duplicate in duplicates:
-        print(duplicate)
-    user_answer = input('Do You want to remove duplicates [Yes/No]: ')
-    positive_answers = ['Yes', 'yes', 'YES', 'Y', 'y']
-    if user_answer in positive_answers:
-        remove_duplicates(duplicates)
+    print_duplicates(files_dict)

@@ -1,15 +1,18 @@
 # Anti-Duplicator
 
-**duplicates.py** provides a capability to find and remove files in a directory if they have the same size and name
+**duplicates.py** provides a capability to find and print files in a directory if they have the same size and name
 
 # Example of script launch on Linux, Python 3.5:
 
 ```bash
  $ python duplicates.py <path to dir>
-Found duplicates in a directory "../dir/":
+Found duplicates in a directory "../dir":
+Duplicates for file 3.bin:
+../dir/3.bin
 ../dir/subdir/3.bin
-../dir/subdir/2.bin
-Do You want to remove duplicates [Yes/No]:
+Duplicates for file 1.bin:
+../dir/1.bin
+../dir/subdir/1.bin
 ```
 # Project Goals
 
