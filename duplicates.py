@@ -17,16 +17,16 @@ def print_duplicates(files_dict):
     for (file_name, file_size), paths in files_dict.items():
         if len(paths) > 1:
             print('Duplicates for file {}:'.format(file_name))
-            for path in paths:
-                print(path)
+            print('\n'.join(paths))
+            
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     if not sys.argv[1:] or not os.path.isdir(sys.argv[1]):
         exit('Usage: python duplicates.py <path to dir>')
 
     src_dirname = sys.argv[1]
 
     files_dict = get_files_dict(src_dirname)
-    print('Found duplicates in a directory "{}":'.format(src_dirname))
+    print('Found duplicates in a directory {}:'.format(src_dirname))
     print_duplicates(files_dict)
