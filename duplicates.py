@@ -17,7 +17,7 @@ def get_duplicates(files_by_size):
     duplicates_in_dir = []
     for file_size, duplicates in files_by_size.items():
         if len(duplicates) > 1:
-            duplicates_in_dir.extend(duplicates[1:])
+            duplicates_in_dir.extend(duplicates[1:])  # The first is original
     return duplicates_in_dir
 
 
@@ -43,9 +43,3 @@ if __name__ == "__main__":
     positive_answers = ['Yes', 'yes', 'YES', 'Y', 'y']
     if user_answer in positive_answers:
         remove_duplicates(duplicates)
-
-
-
-
-
-
