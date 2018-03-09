@@ -5,7 +5,7 @@
 # Example of script launch on Linux, Python 3.5:
 
 ```bash
-python duplicates.py <path to dir>
+ $ python duplicates.py <path to dir>
 Found duplicates in a directory "../dir/":
 ../dir/subdir/3.bin
 ../dir/subdir/2.bin
